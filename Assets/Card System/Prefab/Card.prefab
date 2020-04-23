@@ -241,9 +241,11 @@ GameObject:
   - component: {fileID: 4864522758586094923}
   - component: {fileID: -4785330172934926593}
   - component: {fileID: 5736878590013457324}
+  - component: {fileID: 5309786494835016866}
+  - component: {fileID: -4853798823969022782}
   m_Layer: 5
   m_Name: Card
-  m_TagString: Untagged
+  m_TagString: Card
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -318,6 +320,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04f5992d8f3b0044e9263da53ba76814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentToReturnTo: {fileID: 0}
 --- !u!114 &-4785330172934926593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -350,3 +353,32 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!65 &5309786494835016866
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4864522758586094925}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 125, y: 200, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &-4853798823969022782
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4864522758586094925}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
