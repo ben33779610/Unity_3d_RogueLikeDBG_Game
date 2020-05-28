@@ -4,19 +4,46 @@ using UnityEngine.Networking;
 using System.Collections;
 
 /// <summary>
+<<<<<<< Updated upstream
 /// 取得卡牌資訊
 /// </summary>
+=======
+/// 卡牌資料
+/// </summary>
+[System.Serializable]
+public class CardData
+{
+	public int index;
+	public string name;
+	public int cost;
+	public int hp;
+	public int attack;
+	public string description;
+	public string file;
+}
+
+>>>>>>> Stashed changes
 public class GetCard : MonoBehaviour
 {
 	public static GetCard instance;
 	public CardData[] cards;   //卡牌
 	[Header("卡牌物件")]
+<<<<<<< Updated upstream
 	public GameObject cardobject;    
+=======
+	public GameObject cardobject;
+>>>>>>> Stashed changes
 	[Header("卡牌內容")]
 	public Transform cardcontent;
 	private CanvasGroup loadingPanel;
 	private Image loading;
+<<<<<<< Updated upstream
 
+=======
+	/// <summary>
+	/// 取得卡牌資料
+	/// </summary>
+>>>>>>> Stashed changes
 	private IEnumerator GetCardData()
 	{
 		loadingPanel.alpha = 1;
@@ -43,7 +70,10 @@ public class GetCard : MonoBehaviour
 			else
 			{
 				cards = JsonHelper.FromJson<CardData>(www.downloadHandler.text);
+<<<<<<< Updated upstream
 				CreateCard();
+=======
+>>>>>>> Stashed changes
 			}
 
 
@@ -54,6 +84,7 @@ public class GetCard : MonoBehaviour
 	}
 
 
+<<<<<<< Updated upstream
 	private void Awake()
 	{
 		instance = this;
@@ -88,6 +119,8 @@ public class GetCard : MonoBehaviour
 			//temp.gameObject.AddComponent<BookCard>().index = card.index;
 		}
 	}
+=======
+>>>>>>> Stashed changes
 
 	public static class JsonHelper
 	{
@@ -104,6 +137,7 @@ public class GetCard : MonoBehaviour
 		}
 	}
 }
+<<<<<<< Updated upstream
 
 [System.Serializable]
 public class CardData
@@ -116,3 +150,5 @@ public class CardData
 	public string description;
 	public string file;
 }
+=======
+>>>>>>> Stashed changes
