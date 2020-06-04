@@ -4,16 +4,16 @@ using UnityEngine.EventSystems;
 
 public class HandCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-
-    public Transform parentToReturnTo = null;
+	private Vector3 origin;
+	private bool isdrop;
 
     public void OnBeginDrag(PointerEventData eventData)
     {
 
-        parentToReturnTo = transform.parent;
-        transform.SetParent(transform.parent.parent);
+		//原始座標
+		origin = transform.position;
 
-        GetComponent<CanvasGroup>().blocksRaycasts = false;
+        
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -25,10 +25,25 @@ public class HandCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        transform.SetParent(parentToReturnTo);
-        GetComponent<CanvasGroup>().blocksRaycasts = true;
-    }
+		if (isdrop)
+		{
+			
+		}
+		else
+		{
+			//回到原始座標
+			transform.position = origin;
+		}
+	}
 
+	private void OnCollisionEnter(Collision collision)
+	{
+		isdrop = true;
+	}
+	private void OnCollisionExit(Collision collision)
+	{
+		isdrop = false;
+	}
 
 
 }
