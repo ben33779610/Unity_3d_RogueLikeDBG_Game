@@ -13,6 +13,9 @@ public class BattleManager : MonoBehaviour
 	public List<CardData> HandDeck = new List<CardData>();
 	[Header("手牌遊戲物件")]
 	public List<GameObject> Handgameobject = new List<GameObject>();
+
+	public List<CardData> DropDeck = new List<CardData>();
+	public List<GameObject> Dropgameobject = new List<GameObject>();
 	private int turn; //回合
 	private Transform hand;
 	private Transform canvas;

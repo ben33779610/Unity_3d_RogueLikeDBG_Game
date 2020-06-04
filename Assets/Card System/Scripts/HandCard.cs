@@ -4,8 +4,8 @@ using UnityEngine.EventSystems;
 
 public class HandCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-	private Vector3 origin;
-	private bool isdrop;
+	private Vector3 origin; //初始位置
+	private bool isdrop;	//是否丟出
 
     public void OnBeginDrag(PointerEventData eventData)
     {
@@ -28,6 +28,9 @@ public class HandCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 		if (isdrop)
 		{
 			
+
+
+			Destroy(gameObject);
 		}
 		else
 		{
