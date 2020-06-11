@@ -1,0 +1,28 @@
+fileFormatVersion: 2
+guid: 2d673b0075654434a9d65bc55526fe70
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Gen Jyuu Gothic XP
+  fontNames:
+  - Gen Jyuu Gothic XP
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 7a1b87b1cbc5a2d46a86d2ba24f695a1, type: 3}
+  - {fileID: 12800000, guid: 7c8756732c98432468c951d510f9f9e5, type: 3}
+  - {fileID: 12800000, guid: 4463a404bed9b0b48b0aa82db6af575f, type: 3}
+  - {fileID: 12800000, guid: 29cd8397793c8d04493e514b687da122, type: 3}
+  - {fileID: 12800000, guid: a3a77df97cde23641be9ada2c2578f03, type: 3}
+  - {fileID: 12800000, guid: d910c9ab320d6cf4aad2f7e36d85246c, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
