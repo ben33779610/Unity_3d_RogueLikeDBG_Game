@@ -10,6 +10,8 @@ public class DeckManager : MonoBehaviour
 
 	//戰鬥牌組
 	public List<CardData> BattleDeck = new List<CardData>();
+	public List<GameObject> BattleObject = new List<GameObject>();
+	
 
 
 
@@ -57,7 +59,7 @@ public class DeckManager : MonoBehaviour
 			temp.Find("血量").GetComponent<Text>().text = card.hp.ToString();
 			temp.Find("攻擊").GetComponent<Text>().text = card.attack.ToString();
 			//temp.Find("卡圖").GetComponent<Image>().sprite = Resources.Load<Sprite>(card.file);
-			BattleDeck[i].cardObject = temp.gameObject;
+			BattleObject.Add(temp.gameObject);
 		}
 		
 	}

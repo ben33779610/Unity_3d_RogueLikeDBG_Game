@@ -11,6 +11,7 @@ public class BattleManager : MonoBehaviour
 	public static BattleManager instance;
 	[Header("手牌")]
 	public List<CardData> HandDeck = new List<CardData>();
+	public List<GameObject> HandObject = new List<GameObject>();
 
 
 	public List<CardData> DropDeck = new List<CardData>();
@@ -36,7 +37,8 @@ public class BattleManager : MonoBehaviour
 		{
 			HandDeck.Add(DeckManager.instance.BattleDeck[0]);
 			DeckManager.instance.BattleDeck.RemoveAt(0);
-			
+			HandObject.Add(DeckManager.instance.BattleObject[0]);
+			DeckManager.instance.BattleObject.RemoveAt(0);
 			yield return StartCoroutine(MoveCard());
 
 		}
@@ -44,7 +46,7 @@ public class BattleManager : MonoBehaviour
 
 	private IEnumerator MoveCard()
 	{
-		RectTransform card = HandDeck[HandDeck.Count - 1].cardObject.GetComponent<RectTransform>();
+		RectTransform card = HandObject[HandObject.Count - 1].GetComponent<RectTransform>();
 
 		card.SetParent(canvas);
 		card.anchorMin = Vector2.one * 0.5f;

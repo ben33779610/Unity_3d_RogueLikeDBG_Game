@@ -50,7 +50,7 @@ public class GetCard : MonoBehaviour
 
 
 		//引用(網路要求 www = 網路要求.Post("網址","")
-		using (UnityWebRequest www = UnityWebRequest.Post("https://script.google.com/macros/s/AKfycbyivbUKcqLsbwFCK_DkSVSdwaFDgGEVTjTCWhq6hyKEA5VUq5A/exec", ""))
+		using (UnityWebRequest www = UnityWebRequest.Post("https://script.google.com/macros/s/AKfycbxlwoicsQmf68IKxwiTp8g8ECnf8osykLpBZfBP3USzlzGRb9Q/exec", ""))
 		{
 			//等待網路要求時間
 			//yield return www.SendWebRequest();
