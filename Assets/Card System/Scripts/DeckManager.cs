@@ -34,10 +34,10 @@ public class DeckManager : MonoBehaviour
 		{
 			Deck.Add(GetCard.instance.cards[0]);
 		}
-		for (int i = 0; i < 5; i++)
+	/*	for (int i = 0; i < 5; i++)
 		{
 			Deck.Add(GetCard.instance.cards[1]);
-		}
+		}*/
 		BattleDeck = Deck;
 		Shuffle();
 	}

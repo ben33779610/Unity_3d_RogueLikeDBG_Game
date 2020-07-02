@@ -20,7 +20,11 @@ public class CardData
 	public int attack;
 	public string description;
 	public string file;
+<<<<<<< Updated upstream
 	public GameObject cardObject;
+=======
+    public GameObject obj;
+>>>>>>> Stashed changes
 }
 
 
@@ -69,7 +73,7 @@ public class GetCard : MonoBehaviour
 			else
 			{
 				cards = JsonHelper.FromJson<CardData>(www.downloadHandler.text);
-
+                
 				CreateCard();
 
 			}
@@ -113,11 +117,19 @@ public class GetCard : MonoBehaviour
 			temp.Find("消耗").GetComponent<Text>().text = card.cost.ToString();
 			temp.Find("血量").GetComponent<Text>().text = card.hp.ToString();
 			temp.Find("攻擊").GetComponent<Text>().text = card.attack.ToString();
+<<<<<<< Updated upstream
 			//temp.Find("卡圖").GetComponent<Image>().sprite = Resources.Load<Sprite>(card.file);
 
 			//temp.gameObject.AddComponent<BookCard>().index = card.index;
 			cards[i].cardObject = temp.gameObject;
 		}
+=======
+			temp.Find("卡圖").GetComponent<Image>().sprite = Resources.Load<Sprite>("picture/"+card.file);
+            card.obj = Resources.Load<GameObject>("prefab/" + card.file);
+            
+            //temp.gameObject.AddComponent<BookCard>().index = card.index;
+        }
+>>>>>>> Stashed changes
 	}
 
 

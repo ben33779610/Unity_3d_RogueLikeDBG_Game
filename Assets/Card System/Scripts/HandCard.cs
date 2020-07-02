@@ -4,9 +4,20 @@ using UnityEngine.EventSystems;
 
 public class HandCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
+<<<<<<< Updated upstream
 	public CardData card;	//此卡的資料
+=======
+    public CardData card;
+
+>>>>>>> Stashed changes
 	private Vector3 origin; //初始位置
 	private bool isdrop;	//是否丟出
+    private Transform pos;
+
+    private void Start()
+    {
+        pos = GameObject.Find("生成位置").GetComponent<Transform>();   
+    }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
@@ -28,10 +39,18 @@ public class HandCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     {
 		if (isdrop)
 		{
+<<<<<<< Updated upstream
 			BattleManager.instance.DropDeck.Add(card);
 
+=======
+            BattleManager.instance.HandDeck.Remove(card);
+            BattleManager.instance.DropDeck.Add(card);
+            GameObject temp = Instantiate(card.obj, pos);
+            temp.AddComponent<Monster>().data.atk = card.attack;
+            temp.GetComponent<Monster>().data.hp = card.hp;
+>>>>>>> Stashed changes
 
-			Destroy(gameObject);
+            Destroy(gameObject);
 		}
 		else
 		{
