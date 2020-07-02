@@ -68,10 +68,10 @@ public class BattleManager : MonoBehaviour
 		}
 
 		card.SetParent(hand);
-<<<<<<< Updated upstream
+
 		card.gameObject.AddComponent<HandCard>().card = HandDeck[HandDeck.Count - 1];
-=======
-		card.gameObject.AddComponent<HandCard>().card = HandDeck[HandDeck.Count-1];
->>>>>>> Stashed changes
+
+		
+
 	}
 }

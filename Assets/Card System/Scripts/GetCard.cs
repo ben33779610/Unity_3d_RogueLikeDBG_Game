@@ -20,11 +20,11 @@ public class CardData
 	public int attack;
 	public string description;
 	public string file;
-<<<<<<< Updated upstream
+
 	public GameObject cardObject;
-=======
+
     public GameObject obj;
->>>>>>> Stashed changes
+
 }
 
 
@@ -54,7 +54,7 @@ public class GetCard : MonoBehaviour
 
 
 		//引用(網路要求 www = 網路要求.Post("網址","")
-		using (UnityWebRequest www = UnityWebRequest.Post("https://script.google.com/macros/s/AKfycbxlwoicsQmf68IKxwiTp8g8ECnf8osykLpBZfBP3USzlzGRb9Q/exec", ""))
+		using (UnityWebRequest www = UnityWebRequest.Post("https://script.google.com/macros/s/AKfycbyivbUKcqLsbwFCK_DkSVSdwaFDgGEVTjTCWhq6hyKEA5VUq5A/exec", ""))
 		{
 			//等待網路要求時間
 			//yield return www.SendWebRequest();
@@ -117,20 +117,21 @@ public class GetCard : MonoBehaviour
 			temp.Find("消耗").GetComponent<Text>().text = card.cost.ToString();
 			temp.Find("血量").GetComponent<Text>().text = card.hp.ToString();
 			temp.Find("攻擊").GetComponent<Text>().text = card.attack.ToString();
-<<<<<<< Updated upstream
+
 			//temp.Find("卡圖").GetComponent<Image>().sprite = Resources.Load<Sprite>(card.file);
 
 			//temp.gameObject.AddComponent<BookCard>().index = card.index;
 			cards[i].cardObject = temp.gameObject;
-		}
-=======
-			temp.Find("卡圖").GetComponent<Image>().sprite = Resources.Load<Sprite>("picture/"+card.file);
+            temp.Find("卡圖").GetComponent<Image>().sprite = Resources.Load<Sprite>("picture/" + card.file);
             card.obj = Resources.Load<GameObject>("prefab/" + card.file);
+        }
+
+			
             
             //temp.gameObject.AddComponent<BookCard>().index = card.index;
         }
->>>>>>> Stashed changes
-	}
+
+}
 
 
 	public static class JsonHelper
@@ -146,8 +147,8 @@ public class GetCard : MonoBehaviour
 		{
 			public T[] Items;
 		}
-	}
 }
+
 
 
 

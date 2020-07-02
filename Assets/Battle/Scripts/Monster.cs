@@ -5,14 +5,14 @@ using UnityEngine.AI;
 public class Monster : MonoBehaviour
 {
 
-<<<<<<< Updated upstream
-	public Transform enemypos;         //玩家位置
-=======
+
+
+
 
     public EnemyData data;
 
     public Transform enemypos;         //敵人位置
->>>>>>> Stashed changes
+
 
 	public GameObject coin;
 
@@ -21,10 +21,11 @@ public class Monster : MonoBehaviour
 	private NavMeshAgent nav;           //導覽網格代理器
 
 	private float Timer;
+    private Enemy[] enemy;      //抓到所有敵人
+    private float[] enemydis;       //取得敵人距離
 
-	
 
-	private float hp;
+    private float hp;
 
 	//摺疊 ctrl+m+o
 	//展開 ctrl+m+l 
@@ -34,7 +35,7 @@ public class Monster : MonoBehaviour
 		ani = GetComponent<Animator>();
 		nav = GetComponent<NavMeshAgent>();
 		
-		enemypos = GameObject.FindWithTag("Enemy").GetComponent<Transform>();
+		
         nav.stoppingDistance = data.stopdis;
         nav.speed = data.speed;
         Timer = data.cd - 0.5f;
@@ -109,10 +110,10 @@ public class Monster : MonoBehaviour
 
 	protected virtual void Attack()
 	{
-<<<<<<< Updated upstream
+
 		
 		ani.SetTrigger("攻擊開關");
-=======
+
 		if (Timer < data.cd)
 		{
 			Timer += Time.deltaTime;
@@ -121,7 +122,7 @@ public class Monster : MonoBehaviour
 		{
             ani.SetTrigger("攻擊開關");
 		}
->>>>>>> Stashed changes
+
 	}
 
 	/// <summary>
