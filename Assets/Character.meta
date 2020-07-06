@@ -1,5 +1,17 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+<<<<<<< HEAD:Assets/Character.meta
 guid: 759fe22ccd48fba43a9104f822a241e7
+=======
+guid: f912255a05253fc469f92e36005fef1d
+>>>>>>> master:Assets/Battle.meta
+=======
+<<<<<<< HEAD:Assets/Card System/圖片.meta
+guid: 5c390347fc61ea046b43404fe70a468a
+=======
+guid: 759fe22ccd48fba43a9104f822a241e7
+>>>>>>> origin/Scene1:Assets/Character.meta
+>>>>>>> master
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

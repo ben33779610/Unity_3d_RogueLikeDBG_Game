@@ -17,11 +17,13 @@ public class DropZone : MonoBehaviour
 	
 	private void OnCollisionEnter(Collision collision)
 	{
-		var tempcolor = al.color ;
-		tempcolor = Color.green;
-		tempcolor.a = 0.3f;
-		al.color = tempcolor;
-		
+		if (tag == "怪物區域")
+		{
+			var tempcolor = al.color;
+			tempcolor = Color.green;
+			tempcolor.a = 0.3f;
+			al.color = tempcolor;
+		}
 		Debug.Log("OnPointerEnter");
 	}
 
