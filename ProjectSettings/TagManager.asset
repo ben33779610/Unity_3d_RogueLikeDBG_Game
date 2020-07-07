@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Card
   - Place
+  - Enemy
   layers:
   - Default
   - TransparentFX

@@ -262,9 +262,11 @@ GameObject:
   - component: {fileID: 8174427054220122392}
   - component: {fileID: 7151374551953224053}
   - component: {fileID: 437889761098196113}
+  - component: {fileID: -1985221260482832480}
+  - component: {fileID: -8623658563200839841}
   m_Layer: 0
   m_Name: chicken
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -298,7 +300,7 @@ Animator:
   m_GameObject: {fileID: 8079762760600216100}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: d623cd35a78380d4eb0457c4e483abed, type: 3}
-  m_Controller: {fileID: 9100000, guid: 147625a8286877a4081240cdf9e9eb11, type: 2}
+  m_Controller: {fileID: 9100000, guid: 32932be5f4b2d35478bf1aad3c8a4553, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -331,12 +333,49 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8079762760600216100}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.51
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-1985221260482832480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8079762760600216100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f689c107a3b1d4748a50b3fb28326733, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: 3c5112c302c0158498ed850acd110113, type: 2}
+  enemypos: {fileID: 0}
+  coin: {fileID: 0}
+--- !u!195 &-8623658563200839841
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8079762760600216100}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &8079810743824776058
 GameObject:
   m_ObjectHideFlags: 0

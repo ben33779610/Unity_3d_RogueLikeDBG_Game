@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
+using System.Linq;
 
 public class Enemy : MonoBehaviour
 {
 	public EnemyData data;
 
-	public Transform playerpos;         //玩家位置
+	
 
 	public GameObject coin;
 
@@ -14,6 +15,9 @@ public class Enemy : MonoBehaviour
 	private NavMeshAgent nav;           //導覽網格代理器
 
 	private float Timer;
+
+	private GameObject[] player;      //抓到所有敵人
+	private float[] playerdis;       //取得敵人距離
 
 	//private HpValueManger hpvaluemanger;
 
@@ -27,7 +31,6 @@ public class Enemy : MonoBehaviour
 		ani = GetComponent<Animator>();
 		nav = GetComponent<NavMeshAgent>();
 		//hpvaluemanger = GetComponentInChildren<HpValueManger>();
-		playerpos = GameObject.FindWithTag("Player").GetComponent<Transform>();
 		nav.stoppingDistance = data.stopdis;
 		nav.speed = data.speed;
 		Timer = data.cd-0.5f;
@@ -59,20 +62,41 @@ public class Enemy : MonoBehaviour
 	private void Move()
 	{
 		if (ani.GetBool("死亡開關")) return;
-		Vector3 postarget = playerpos.position;
-		postarget.y = transform.position.y;
-		transform.LookAt(postarget);
-		ani.SetBool("跑步開關",true);
-		nav.SetDestination(playerpos.position);
 
-		//print("剩餘距離" + nav.remainingDistance);  跟目的的勝於距離
-		if (nav.remainingDistance < nav.stoppingDistance)
+
+		player = GameObject.FindGameObjectsWithTag("Player");
+		if (player.Length == 0)
 		{
-			Wait();
+
 		}
 		else
 		{
+			playerdis = new float[player.Length];
+			//距離陣列=新的浮點數陣列[數量]
+			for (int i = 0; i < player.Length; i++)
+			{
+				playerdis[i] = Vector3.Distance(transform.position, player[i].transform.position);
+				//距離=三為向量(A,B)
+			}
+			float min = playerdis.Min();
+			int index = playerdis.ToList().IndexOf(min);
+			Vector3 playerpost = player[index].transform.position;
+
+			playerpost.y = transform.position.y;
+			
+			transform.LookAt(playerpost);
 			ani.SetBool("跑步開關", true);
+			nav.SetDestination(playerpost);
+
+			//print("剩餘距離" + nav.remainingDistance);  跟目的的勝於距離
+			if (nav.remainingDistance < nav.stoppingDistance)
+			{
+				Wait();
+			}
+			else
+			{
+				ani.SetBool("跑步開關", true);
+			}
 		}
 	}
 

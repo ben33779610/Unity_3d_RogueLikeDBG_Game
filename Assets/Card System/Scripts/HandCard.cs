@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class HandCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
@@ -13,11 +14,14 @@ public class HandCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 	private Vector3 origin; //初始位置
 	private bool isdrop;	//是否丟出
     private Transform pos;
+	private int crystalcost;
 
-    private void Start()
+	private void Start()
     {
-        pos = GameObject.Find("生成位置").GetComponent<Transform>();   
-    }
+        pos = GameObject.Find("生成位置").GetComponent<Transform>();
+		crystalcost = int.Parse(transform.Find("消耗").GetComponent<Text>().text);
+		print(crystalcost);
+	}
 
     public void OnBeginDrag(PointerEventData eventData)
     {
@@ -39,18 +43,9 @@ public class HandCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     {
 		if (isdrop)
 		{
+			print("觸碰");
+			CheckCrystal();
 
-			BattleManager.instance.DropDeck.Add(card);
-
-
-            BattleManager.instance.HandDeck.Remove(card);
-            BattleManager.instance.DropDeck.Add(card);
-            GameObject temp = Instantiate(card.obj, pos);
-            //temp.AddComponent<Monster>().data.atk = card.attack;
-            //temp.GetComponent<Monster>().data.hp = card.hp;
-
-
-            Destroy(gameObject);
 		}
 		else
 		{
@@ -68,5 +63,34 @@ public class HandCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 		isdrop = false;
 	}
 
+	/// <summary>
+    /// 檢查水晶
+    /// </summary>
+	private void CheckCrystal()
+	{
+		if (crystalcost <= BattleManager.instance.crystal)
+		{
+			
+			BattleManager.instance.crystal -= crystalcost;
+			BattleManager.instance.UpdateCrystal();
+			print(BattleManager.instance.crystal);
 
+			BattleManager.instance.DropDeck.Add(card);
+			BattleManager.instance.HandDeck.Remove(card);
+			BattleManager.instance.DropDeck.Add(card);
+			GameObject temp = Instantiate(card.obj, pos);
+			temp.GetComponent<Monster>().data.atk = card.attack;
+			temp.GetComponent<Monster>().data.hp = card.hp;
+			Destroy(gameObject);
+
+		}
+		else
+		{
+			print("能量不夠");
+			//回到原始座標
+			transform.position = origin;
+		}
+
+
+	}
 }

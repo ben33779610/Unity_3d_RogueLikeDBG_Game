@@ -11,7 +11,7 @@ public class Monster : MonoBehaviour
 
     public EnemyData data;
 
-    public Transform enemypos;         //敵人位置
+    
 
 
 	public GameObject coin;
@@ -71,6 +71,7 @@ public class Monster : MonoBehaviour
 
 
         //抓出所有敵人
+		
         enemy = FindObjectsOfType<Enemy>();
         if (enemy.Length == 0)
         {
@@ -92,9 +93,9 @@ public class Monster : MonoBehaviour
             enemypost.y = transform.position.y;
             transform.LookAt(enemypost);
 
-            enemypos.position = enemypost;
+            
             ani.SetBool("跑步開關", true);
-            nav.SetDestination(enemypos.position);
+            nav.SetDestination(enemypost);
 
             //print("剩餘距離" + nav.remainingDistance);  跟目的的勝於距離
             if (nav.remainingDistance < nav.stoppingDistance)

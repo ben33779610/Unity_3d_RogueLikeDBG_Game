@@ -108,6 +108,8 @@ public class DeckManager : MonoBehaviour
 	{
 
 		StartCoroutine( BattleManager.instance.GetCard(4));
-		
+		BattleManager.instance.StartTurn();
+
+
 	}
 }

@@ -13,17 +13,23 @@ public class BattleManager : MonoBehaviour
 	public List<CardData> HandDeck = new List<CardData>();
 	public List<GameObject> HandObject = new List<GameObject>();
 
+	public int crystal;
+	public GameObject[] crystalobject;
+	private bool myturn;
 
 	public List<CardData> DropDeck = new List<CardData>();
 	private int turn; //回合
 	private Transform hand;
 	private Transform canvas;
+	private int crystalTotal;
 
 	private void Start()
 	{
 		instance = this;
 		canvas = GameObject.Find("畫布").GetComponent<Transform>();
 		hand = GameObject.Find("手牌").GetComponent<Transform>();
+		crystalTotal = 3;
+		
 	}
 
 
@@ -74,4 +80,42 @@ public class BattleManager : MonoBehaviour
 		
 
 	}
+
+	/// <summary>
+	/// 結束回合
+	/// </summary>
+	public void EndTurn()
+	{
+		myturn = false;
+	}
+
+
+	public void StartTurn()
+	{
+		myturn = true;
+		crystal = crystalTotal;
+		Crystal();
+		StartCoroutine(GetCard(1));
+	}
+
+	private void Crystal()
+	{
+		for (int i = 0; i < crystal; i++)
+		{
+			crystalobject[i].SetActive(true);
+		}
+		
+	}
+
+	public void UpdateCrystal()
+	{
+		for (int i = 0; i < crystalobject.Length; i++)
+		{
+			if (i < crystal) continue;      //如果i < 水晶數量  就跳過此次
+
+			crystalobject[i].SetActive(false);
+		}
+		
+	}
+
 }
