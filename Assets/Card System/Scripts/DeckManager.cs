@@ -11,7 +11,7 @@ public class DeckManager : MonoBehaviour
 	//戰鬥牌組
 	public List<CardData> BattleDeck = new List<CardData>();
 	public List<GameObject> BattleObject = new List<GameObject>();
-	
+    public bool Startbattle;
 
 
 
@@ -30,7 +30,7 @@ public class DeckManager : MonoBehaviour
 	/// </summary>
 	public void InitialDeck()
 	{
-		for (int i = 0; i < 5; i++)
+		for (int i = 0; i < 10; i++)
 		{
 			Deck.Add(GetCard.instance.cards[0]);
 		}
@@ -58,7 +58,7 @@ public class DeckManager : MonoBehaviour
 			temp.Find("消耗").GetComponent<Text>().text = card.cost.ToString();
 			temp.Find("血量").GetComponent<Text>().text = card.hp.ToString();
 			temp.Find("攻擊").GetComponent<Text>().text = card.attack.ToString();
-			//temp.Find("卡圖").GetComponent<Image>().sprite = Resources.Load<Sprite>(card.file);
+			temp.Find("卡圖").GetComponent<Image>().sprite = Resources.Load<Sprite>("picture/" + card.file);
 			BattleObject.Add(temp.gameObject);
 		}
 		
@@ -94,10 +94,15 @@ public class DeckManager : MonoBehaviour
 
 	}
 
-	/// <summary>
-	/// 刪除卡牌
-	/// </summary>
-	public void DeleteCard(int index)
+
+
+
+
+
+    /// <summary>
+    /// 刪除卡牌
+    /// </summary>
+    public void DeleteCard(int index)
 	{
 
 		//移除卡牌
@@ -110,6 +115,6 @@ public class DeckManager : MonoBehaviour
 		StartCoroutine( BattleManager.instance.GetCard(4));
 		BattleManager.instance.StartTurn();
 
-
+        Startbattle = true;
 	}
 }

@@ -77,7 +77,6 @@ public class HandCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
 			BattleManager.instance.DropDeck.Add(card);
 			BattleManager.instance.HandDeck.Remove(card);
-			BattleManager.instance.DropDeck.Add(card);
 			GameObject temp = Instantiate(card.obj, pos);
 			temp.GetComponent<Monster>().data.atk = card.attack;
 			temp.GetComponent<Monster>().data.hp = card.hp;

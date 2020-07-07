@@ -89,6 +89,8 @@ public class BattleManager : MonoBehaviour
 	public void EndTurn()
 	{
 		myturn = false;
+
+        Invoke("StartTurn", 5);
 	}
 
 
@@ -119,5 +121,7 @@ public class BattleManager : MonoBehaviour
 		}
 		
 	}
+
+
 
 }

@@ -15,12 +15,13 @@ public class PlayerManager : MonoBehaviour
 
     private void Update()
     {
-        Move();
+        if(DeckManager.instance.Startbattle)
+            Move();
     }
 
     public void Move()
     {
-        if(playertf.position.z < 275)
+        if(playertf.position.z < 350)
         {
             playerani.SetBool("移動開關", true);
             playertf.Translate(Vector3.forward * Time.deltaTime*50);
