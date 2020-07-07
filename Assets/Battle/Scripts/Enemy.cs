@@ -82,7 +82,7 @@ public class Enemy : MonoBehaviour
 			int index = playerdis.ToList().IndexOf(min);
 			Vector3 playerpost = player[index].transform.position;
 
-			// playerpost.y = transform.position.y;
+            playerpost.y = transform.position.y;
 			
 			transform.LookAt(playerpost);
 			ani.SetBool("跑步開關", true);

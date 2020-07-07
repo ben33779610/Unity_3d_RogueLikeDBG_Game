@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53a76ef127538c24983b8d59139832aa, type: 3}
   m_Name: "\u7D05\u602A"
   m_EditorClassIdentifier: 
-  speed: 0
-  hp: 0
-  atk: 0
-  cd: 0
-  stopdis: 0
-  attackY: 0
-  attackLength: 0
-  attackDelay: 0
-  attackZ: 0
+  speed: 50
+  hp: 934
+  atk: 0.47
+  cd: 1.35
+  stopdis: 100
+  attackY: 0.24
+  attackLength: 1.39
+  attackDelay: 0.93
+  attackZ: 0.9
   bulletspeed: 0
   coinrange: {x: 0, y: 0}

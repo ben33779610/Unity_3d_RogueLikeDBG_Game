@@ -21,7 +21,7 @@ public class Monster : MonoBehaviour
 	private NavMeshAgent nav;           //導覽網格代理器
 
 	private float Timer;
-    private Enemy[] enemy;      //抓到所有敵人
+    private GameObject[] enemy;      //抓到所有敵人
     private float[] enemydis;       //取得敵人距離
 
 
@@ -71,8 +71,8 @@ public class Monster : MonoBehaviour
 
 
         //抓出所有敵人
-		
-        enemy = FindObjectsOfType<Enemy>();
+
+        enemy = GameObject.FindGameObjectsWithTag("Enemy");
         if (enemy.Length == 0)
         {
 

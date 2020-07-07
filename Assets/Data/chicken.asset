@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53a76ef127538c24983b8d59139832aa, type: 3}
   m_Name: chicken
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 50
   hp: 1
   atk: 1
   cd: 1
-  stopdis: 6.4
+  stopdis: 100
   attackY: 0.02
   attackLength: 0
   attackDelay: 0
