@@ -82,13 +82,13 @@ public class Enemy : MonoBehaviour
 			int index = playerdis.ToList().IndexOf(min);
 			Vector3 playerpost = player[index].transform.position;
 
-			playerpost.y = transform.position.y;
+			// playerpost.y = transform.position.y;
 			
 			transform.LookAt(playerpost);
 			ani.SetBool("跑步開關", true);
 			nav.SetDestination(playerpost);
 
-			//print("剩餘距離" + nav.remainingDistance);  跟目的的勝於距離
+			// print("剩餘距離" + nav.remainingDistance);  跟目的的勝於距離
 			if (nav.remainingDistance < nav.stoppingDistance)
 			{
 				Wait();
@@ -125,17 +125,17 @@ public class Enemy : MonoBehaviour
 	{
 		ani.SetBool("死亡開關", true);
 		nav.isStopped = true;
-		CreateCoin();
+		//CreateCoin();
 		Destroy(this);
 		Destroy(gameObject, 0.5f);
 	}
 
-	private void CreateCoin()
+/*	private void CreateCoin()
 	{
 		int r =(int)Random.Range(data.coinrange.x, data.coinrange.y);
 		for (int i = 0; i < r; i++)
 		{
 			Instantiate(coin, transform.position + transform.up * 2, transform.rotation);
 		}
-	}
+	}*/
 }

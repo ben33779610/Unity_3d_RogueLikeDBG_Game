@@ -13,6 +13,7 @@ public class BattleManager : MonoBehaviour
 	public List<CardData> HandDeck = new List<CardData>();
 	public List<GameObject> HandObject = new List<GameObject>();
 
+    public Animator ani;
 	public int crystal;
 	public GameObject[] crystalobject;
 	private bool myturn;
@@ -76,6 +77,7 @@ public class BattleManager : MonoBehaviour
 		card.SetParent(hand);
 
 		card.gameObject.AddComponent<HandCard>().card = HandDeck[HandDeck.Count - 1];
+        card.gameObject.GetComponent<HandCard>().ani = ani;
 
 		
 

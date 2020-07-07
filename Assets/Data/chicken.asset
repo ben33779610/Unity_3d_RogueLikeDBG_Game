@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: chicken
   m_EditorClassIdentifier: 
   speed: 1
-  hp: 0
-  atk: 0
+  hp: 1
+  atk: 1
   cd: 1
-  stopdis: 1
-  attackY: 0
+  stopdis: 6.4
+  attackY: 0.02
   attackLength: 0
   attackDelay: 0
   attackZ: 0

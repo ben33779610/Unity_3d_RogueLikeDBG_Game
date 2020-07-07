@@ -7,7 +7,7 @@ public class HandCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 {
 
 	public CardData card;	//此卡的資料
-
+    public Animator ani;
 
 
 
@@ -70,7 +70,7 @@ public class HandCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 	{
 		if (crystalcost <= BattleManager.instance.crystal)
 		{
-			
+            ani.SetTrigger("攻擊觸發");
 			BattleManager.instance.crystal -= crystalcost;
 			BattleManager.instance.UpdateCrystal();
 			print(BattleManager.instance.crystal);
