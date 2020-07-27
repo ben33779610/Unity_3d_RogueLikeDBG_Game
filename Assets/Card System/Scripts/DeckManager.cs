@@ -30,29 +30,40 @@ public class DeckManager : MonoBehaviour
 	/// </summary>
 	public void InitialDeck()
 	{
+		DeckManager.instance.Deck.Clear();
 		for (int i = 0; i < 10; i++)
 		{
-			Deck.Add(GetCard.instance.cards[0]);
+			DeckManager.instance.Deck.Add(GetCard.instance.cards[0]);
+			
 		}
 	/*	for (int i = 0; i < 5; i++)
 		{
 			Deck.Add(GetCard.instance.cards[1]);
 		}*/
-		BattleDeck = Deck;
-		Shuffle();
+		
+		
 	}
 
+	public void BattleDeckInit()
+    {
+		DeckManager.instance.BattleDeck.Clear();
+		for (int i = 0; i < DeckManager.instance.Deck.Count; i++)
+		{
+			DeckManager.instance.BattleDeck.Add(DeckManager.instance.Deck[i]);
+		}
+		Shuffle();
+	}
 
 
 	/// <summary>
 	/// 建立卡牌在洗牌區
 	/// </summary>
-	private void CreateCard()
+	public void CreateCard()
 	{
-		for (int i = 0; i < BattleDeck.Count; i++)
+		for (int i = 0; i < DeckManager.instance.BattleDeck.Count; i++)
 		{
 			Transform temp = Instantiate(GetCard.instance.cardobject, deckcontent).transform;
-			CardData card = Deck[i];
+			CardData card = DeckManager.instance.BattleDeck[i];
 			temp.Find("名稱").GetComponent<Text>().text = card.name.ToString();
 			temp.Find("描述").GetComponent<Text>().text = card.description.ToString();
 			temp.Find("消耗").GetComponent<Text>().text = card.cost.ToString();
@@ -87,11 +98,13 @@ public class DeckManager : MonoBehaviour
 
 		//取得卡牌資訊
 		CardData card = GetCard.instance.cards[index - 1];
-		Deck.Add(card);
+		DeckManager.instance.Deck.Add(card);
 
-			
-		
+		Destroy(LevelManager.instance.Rewardcards[0]);	
+		Destroy(LevelManager.instance.Rewardcards[1]);	
+		Destroy(LevelManager.instance.Rewardcards[2]);
 
+		LevelManager.instance.Rewardcardimg.SetActive(false);
 	}
 
 
@@ -112,9 +125,9 @@ public class DeckManager : MonoBehaviour
 	public void StartBattle()
 	{
 
-		StartCoroutine( BattleManager.instance.GetCard(4));
-		BattleManager.instance.StartTurn();
+		StartCoroutine( BattleManager.instance.GetCard(5));
+		
 
-        Startbattle = true;
+        
 	}
 }

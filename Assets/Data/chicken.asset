@@ -16,10 +16,10 @@ MonoBehaviour:
   hp: 1
   atk: 1
   cd: 1
-  stopdis: 100
-  attackY: 0.02
-  attackLength: 0
-  attackDelay: 0
+  stopdis: 80
+  attackY: 15
+  attackLength: 70
+  attackDelay: 0.8
   attackZ: 0
   bulletspeed: 0
   coinrange: {x: 0, y: 0}

@@ -11,11 +11,12 @@ public class Monster : MonoBehaviour
 
     public EnemyData data;
 
-    
 
+	public AudioClip audc;
 
 	public GameObject coin;
 
+	private AudioSource auds;
 	private Animator ani;				//動畫
 
 	private NavMeshAgent nav;           //導覽網格代理器
@@ -24,9 +25,10 @@ public class Monster : MonoBehaviour
     private GameObject[] enemy;      //抓到所有敵人
     private float[] enemydis;       //取得敵人距離
 
+	
 
-    private float hp;
-
+	private float hp;
+	protected float atk;
 	//摺疊 ctrl+m+o
 	//展開 ctrl+m+l 
 
@@ -34,13 +36,14 @@ public class Monster : MonoBehaviour
 	{
 		ani = GetComponent<Animator>();
 		nav = GetComponent<NavMeshAgent>();
-		
-		
-        nav.stoppingDistance = data.stopdis;
+
+		auds = GetComponent<AudioSource>();
+
+		nav.stoppingDistance = data.stopdis;
         nav.speed = data.speed;
         Timer = data.cd - 0.5f;
         hp = data.hp;
-
+		atk = data.atk;
     }
 	private void Update()
 	{
@@ -144,6 +147,7 @@ public class Monster : MonoBehaviour
 	private void Dead()
 	{
 		ani.SetBool("死亡開關", true);
+		auds.PlayOneShot(audc);
 		nav.isStopped = true;
 		CreateCoin();
 		Destroy(this);

@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: "\u7D05\u602A"
   m_EditorClassIdentifier: 
   speed: 50
-  hp: 934
-  atk: 0.47
+  hp: 5
+  atk: 0.5
   cd: 1.35
-  stopdis: 100
-  attackY: 0.24
-  attackLength: 1.39
-  attackDelay: 0.93
+  stopdis: 80
+  attackY: 15
+  attackLength: 70
+  attackDelay: 0.8
   attackZ: 0.9
   bulletspeed: 0
   coinrange: {x: 0, y: 0}

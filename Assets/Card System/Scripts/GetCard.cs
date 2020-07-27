@@ -83,6 +83,8 @@ public class GetCard : MonoBehaviour
 		yield return new WaitForSeconds(0.5f);
 		loadingPanel.alpha = 0;
 		loadingPanel.blocksRaycasts = false;
+		DeckManager.instance.Startbattle = true;
+		DeckManager.instance.InitialDeck();
 	}
 
 

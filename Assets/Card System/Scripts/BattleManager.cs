@@ -30,7 +30,7 @@ public class BattleManager : MonoBehaviour
 		canvas = GameObject.Find("畫布").GetComponent<Transform>();
 		hand = GameObject.Find("手牌").GetComponent<Transform>();
 		crystalTotal = 3;
-		
+		crystal = crystalTotal;
 	}
 
 
@@ -42,6 +42,12 @@ public class BattleManager : MonoBehaviour
 		yield return null;
 		for (int i = 0; i < count; i++)
 		{
+			if(DeckManager.instance.BattleDeck.Count == 0)
+            {
+				ResetDeck();
+
+			}
+
 			HandDeck.Add(DeckManager.instance.BattleDeck[0]);
 			DeckManager.instance.BattleDeck.RemoveAt(0);
 			HandObject.Add(DeckManager.instance.BattleObject[0]);
@@ -83,6 +89,40 @@ public class BattleManager : MonoBehaviour
 
 	}
 
+
+	private IEnumerator ThrowCard(int count)
+	{
+
+		yield return null;
+		for (int i = 0; i < count; i++)
+		{
+			DropDeck.Add(HandDeck[0]);
+			HandDeck.RemoveAt(0);
+			
+			yield return StartCoroutine(ThrowMove());
+
+		}
+
+	}
+
+
+	private IEnumerator ThrowMove()
+    {
+		RectTransform card = HandObject[0].GetComponent<RectTransform>();
+
+		card.SetParent(canvas);
+
+
+
+		while (card.anchoredPosition.x > 830)
+		{
+			card.anchoredPosition = Vector2.Lerp(card.anchoredPosition, new Vector2(831, 0), 0.5f * Time.deltaTime * 50);
+			yield return null;
+		}
+		Destroy(HandObject[0]);
+		HandObject.RemoveAt(0);
+	}
+
 	/// <summary>
 	/// 結束回合
 	/// </summary>
@@ -90,7 +130,10 @@ public class BattleManager : MonoBehaviour
 	{
 		myturn = false;
 
-        Invoke("StartTurn", 5);
+
+		StartCoroutine ( ThrowCard(HandObject.Count));
+
+        Invoke("StartTurn", 3);
 	}
 
 
@@ -99,7 +142,7 @@ public class BattleManager : MonoBehaviour
 		myturn = true;
 		crystal = crystalTotal;
 		Crystal();
-		StartCoroutine(GetCard(1));
+		StartCoroutine(GetCard(5));
 	}
 
 	private void Crystal()
@@ -123,5 +166,14 @@ public class BattleManager : MonoBehaviour
 	}
 
 
+	public void ResetDeck()
+	{
+		for (int i = 0; i < DropDeck.Count; i++)
+		{
+			DeckManager.instance.BattleDeck.Add( BattleManager.instance.DropDeck[i]);
+		}
+		BattleManager.instance.DropDeck.Clear();
+		DeckManager.instance.CreateCard();
+	}
 
 }

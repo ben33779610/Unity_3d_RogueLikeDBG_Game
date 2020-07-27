@@ -17,8 +17,9 @@ public class NearMonster : Monster
 
         if (Physics.Raycast(transform.position + Vector3.up * data.attackY, transform.forward, out hit, data.attackLength))
         {
-            hit.collider.GetComponent<Enemy>().Hit(data.atk);
-
+            
+                hit.collider.GetComponent<Enemy>().Hit(atk);
+    
         }
     }
 

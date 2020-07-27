@@ -17,8 +17,14 @@ public class NearEnemy : Enemy
 
         if (Physics.Raycast(transform.position + Vector3.up * data.attackY, transform.forward, out hit, data.attackLength))
         {
-            hit.collider.GetComponent<Monster>().Hit(data.atk);
-
+            if (hit.collider.name == ("玩家"))
+            {
+                hit.collider.GetComponent<Player>().Hit(data.atk);
+            }
+            else
+            {
+                hit.collider.GetComponent<Monster>().Hit(data.atk);
+            }
         }
     }
 
