@@ -100,11 +100,11 @@ public class DeckManager : MonoBehaviour
 		CardData card = GetCard.instance.cards[index - 1];
 		DeckManager.instance.Deck.Add(card);
 
-		Destroy(LevelManager.instance.Rewardcards[0]);	
-		Destroy(LevelManager.instance.Rewardcards[1]);	
-		Destroy(LevelManager.instance.Rewardcards[2]);
+		Destroy(GameManager.instance.Rewardcards[0]);	
+		Destroy(GameManager.instance.Rewardcards[1]);	
+		Destroy(GameManager.instance.Rewardcards[2]);
 
-		LevelManager.instance.Rewardcardimg.SetActive(false);
+		GameManager.instance.Rewardcardimg.SetActive(false);
 	}
 
 

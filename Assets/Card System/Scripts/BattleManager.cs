@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 public class BattleManager : MonoBehaviour
 {
@@ -16,17 +16,19 @@ public class BattleManager : MonoBehaviour
     public Animator ani;
 	public int crystal;
 	public GameObject[] crystalobject;
-	private bool myturn;
+	public Button btnend;
 
 	public List<CardData> DropDeck = new List<CardData>();
 	private int turn; //回合
 	private Transform hand;
 	private Transform canvas;
 	private int crystalTotal;
+	private bool myturn;
 
 	private void Start()
 	{
 		instance = this;
+		DeckManager.instance.Startbattle = true;
 		canvas = GameObject.Find("畫布").GetComponent<Transform>();
 		hand = GameObject.Find("手牌").GetComponent<Transform>();
 		crystalTotal = 3;
@@ -130,7 +132,7 @@ public class BattleManager : MonoBehaviour
 	{
 		myturn = false;
 
-
+		btnend.interactable = false;
 		StartCoroutine ( ThrowCard(HandObject.Count));
 
         Invoke("StartTurn", 3);
@@ -140,6 +142,7 @@ public class BattleManager : MonoBehaviour
 	public void StartTurn()
 	{
 		myturn = true;
+		btnend.interactable = true;
 		crystal = crystalTotal;
 		Crystal();
 		StartCoroutine(GetCard(5));

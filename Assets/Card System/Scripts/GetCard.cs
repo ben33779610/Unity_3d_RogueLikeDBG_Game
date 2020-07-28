@@ -20,9 +20,7 @@ public class CardData
 	public int attack;
 	public string description;
 	public string file;
-
 	public GameObject cardObject;
-
     public GameObject obj;
 
 }
@@ -34,11 +32,10 @@ public class GetCard : MonoBehaviour
 	public CardData[] cards;   //卡牌
 	[Header("卡牌物件")]
 
-	public GameObject cardobject;    
-
-
-	[Header("卡牌內容")]
+	public GameObject cardobject;
 	public Transform cardcontent;
+
+
 	private CanvasGroup loadingPanel;
 	private Image loading;
 
@@ -73,7 +70,7 @@ public class GetCard : MonoBehaviour
 			else
 			{
 				cards = JsonHelper.FromJson<CardData>(www.downloadHandler.text);
-                
+
 				CreateCard();
 
 			}
@@ -83,7 +80,7 @@ public class GetCard : MonoBehaviour
 		yield return new WaitForSeconds(0.5f);
 		loadingPanel.alpha = 0;
 		loadingPanel.blocksRaycasts = false;
-		DeckManager.instance.Startbattle = true;
+		
 		DeckManager.instance.InitialDeck();
 	}
 
