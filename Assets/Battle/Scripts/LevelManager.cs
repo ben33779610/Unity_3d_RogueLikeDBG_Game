@@ -7,7 +7,9 @@ public class LevelManager : MonoBehaviour
     private void Start()
     {
         GameObject.DontDestroyOnLoad(gameObject);
+        
     }
+
     public void LoadLevel()
     {
         SceneManager.LoadScene("關卡1");

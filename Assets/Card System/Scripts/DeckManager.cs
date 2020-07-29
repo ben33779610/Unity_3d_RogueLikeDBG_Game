@@ -23,12 +23,14 @@ public class DeckManager : MonoBehaviour
 	private void Start()
 	{
 		instance = this;
+		
 
 	}
-	/// <summary>
-	/// 初始化牌組
-	/// </summary>
-	public void InitialDeck()
+
+    /// <summary>
+    /// 初始化牌組
+    /// </summary>
+    public void InitialDeck()
 	{
 		DeckManager.instance.Deck.Clear();
 		for (int i = 0; i < 10; i++)
