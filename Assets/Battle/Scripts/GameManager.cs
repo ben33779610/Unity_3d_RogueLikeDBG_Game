@@ -87,4 +87,15 @@ public class GameManager : MonoBehaviour
         
     }
 
+    public void ResetLevel()
+    {
+        Scene scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scene.name);
+
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }
