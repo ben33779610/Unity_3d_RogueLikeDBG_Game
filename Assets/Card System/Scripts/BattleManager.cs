@@ -35,11 +35,12 @@ public class BattleManager : MonoBehaviour
 		crystal = crystalTotal;
 	}
 
+    
 
-	/// <summary>
-	/// 取得手牌
-	/// </summary>
-	public IEnumerator GetCard(int count)
+    /// <summary>
+    /// 取得手牌
+    /// </summary>
+    public IEnumerator GetCard(int count)
 	{
 		yield return null;
 		for (int i = 0; i < count; i++)

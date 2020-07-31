@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
     {
 		if (DeckManager.instance.Startbattle)
 			Move();
-		if(!GameManager.instance.checkwin)
+		if(GameManager.instance.one)
 			GameManager.instance.CheckWin();
 	}
 

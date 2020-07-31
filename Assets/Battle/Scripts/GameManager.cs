@@ -16,30 +16,40 @@ public class GameManager : MonoBehaviour
     public GameObject RewardObject;
     public GameObject[] Rewardcards = new GameObject[3];
     public bool checkwin;
+    public bool one = true;
+
+    public GameObject reward;
 
     private void Start()
     {
         instance = this;
         
+        
+        
     }
 
-
+    private void Update()
+    {
+       /* if (Input.GetKeyDown(KeyCode.A))
+        {
+            GameManager.instance.checkwin = true;
+        }*/
+    }
 
 
     public void CheckWin()
     {
-        if (checkwin) return;
-        if (GameObject.FindWithTag("Enemy") == null)
+        
+        if (GameObject.FindWithTag("Enemy") == null|| checkwin)
         {
             print("贏了");
             endingplace.SetActive(true);
             checkwin = true;
-            if (checkwin)
+            if (checkwin&& one)
             {
-                
-                Instantiate(RewardObject, Rewardchoose);
-                Button btn = RewardObject.GetComponent<Button>() ;
-                btn.onClick.AddListener(ShowRewardCard);
+                one = false;
+                reward = Instantiate(RewardObject, Rewardchoose);
+                reward.GetComponent<Button>().onClick.AddListener(ShowRewardCard);
                 print("u can choose");
             }
         }
@@ -70,5 +80,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
+    public void LoadLevel()
+    {
+        SceneManager.LoadScene("Map");
+        
+    }
 
 }

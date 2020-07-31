@@ -6,6 +6,7 @@ namespace Map
 {
     public class MapManager : MonoBehaviour
     {
+        public static MapManager instance;
         public MapConfig config;
         public MapView view;
 
@@ -13,6 +14,10 @@ namespace Map
 
         private void Start()
         {
+            instance = this;
+            
+            
+            
             if (PlayerPrefs.HasKey("Map"))
             {
                 var mapJson = PlayerPrefs.GetString("Map");
@@ -22,18 +27,18 @@ namespace Map
                 {
                     // payer has already reached the boss, generate a new map
                     GenerateNewMap();
+                    CurrentMap = map;
+                    view.ShowMap(map);
                 }
                 else
                 {
                     CurrentMap = map;
                     // player has not reached the boss yet, load the current map
                     view.ShowMap(map);
+                    
                 }
             }
-            else
-            {
-                GenerateNewMap();
-            }
+            
         }
 
         public void GenerateNewMap()
@@ -41,7 +46,8 @@ namespace Map
             var map = MapGenerator.GetMap(config);
             CurrentMap = map;
             Debug.Log(map.ToJson());
-            view.ShowMap(map);
+            SaveMap();
+            print("生成地圖");
         }
 
         public void SaveMap()

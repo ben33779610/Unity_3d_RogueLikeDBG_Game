@@ -2,6 +2,7 @@
 using System.Linq;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Map
 {
@@ -69,18 +70,25 @@ namespace Map
             switch (mapNode.Node.nodeType)
             {
                 case NodeType.MinorEnemy:
+                    SceneManager.LoadScene("關卡1");
                     break;
                 case NodeType.EliteEnemy:
+                    SceneManager.LoadScene("Map");
                     break;
                 case NodeType.RestSite:
+                    SceneManager.LoadScene("Map");
                     break;
                 case NodeType.Treasure:
+                    SceneManager.LoadScene("Map");
                     break;
                 case NodeType.Store:
+                    SceneManager.LoadScene("Map");
                     break;
                 case NodeType.Boss:
+                    SceneManager.LoadScene("Map");
                     break;
                 case NodeType.Mystery:
+                    SceneManager.LoadScene("Map");
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();

@@ -91,12 +91,14 @@ public class GetCard : MonoBehaviour
 		instance = this;
 		loadingPanel = GameObject.Find("載入畫面").GetComponent<CanvasGroup>();
 		loading = GameObject.Find("進度條").GetComponent<Image>();
+
 	}
 
 	private void Start()
 	{
 		StartCoroutine(GetCardData());
-		
+		GameObject.DontDestroyOnLoad(gameObject);
+
 	}
 	/// <summary>
 	/// 卡片資料

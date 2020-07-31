@@ -105,7 +105,7 @@ public class DeckManager : MonoBehaviour
 		Destroy(GameManager.instance.Rewardcards[0]);	
 		Destroy(GameManager.instance.Rewardcards[1]);	
 		Destroy(GameManager.instance.Rewardcards[2]);
-
+		Destroy(GameManager.instance.reward);
 		GameManager.instance.Rewardcardimg.SetActive(false);
 	}
 
